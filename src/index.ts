@@ -1,12 +1,14 @@
 import makeApp from "./server"
+import * as dotenv from 'dotenv'
+dotenv.config()
 
 
 const app = makeApp()
 
 
 
-
-app.listen(5000, (): void =>{
+const port = process.env.PORT || 5000
+app.listen(port, (): void =>{
     console.log('Server is running')
 })
 
