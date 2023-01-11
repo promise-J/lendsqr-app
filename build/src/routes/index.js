@@ -1,0 +1,14 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = require("express");
+const auth_1 = require("../auth/auth");
+const controllers_1 = require("../controllers");
+const router = (0, express_1.Router)();
+router.route('/user/login').post(controllers_1.login);
+router.route('/user').post(controllers_1.createUser).delete(auth_1.auth, controllers_1.deleteUser);
+router.use(auth_1.auth);
+router.route('/wallet').get(controllers_1.checkWalletBalance);
+router.route('/wallet/withdraw').put(controllers_1.withdrawFund);
+router.route('/wallet/fund').put(controllers_1.fundWallet);
+router.route('/wallet/transfer/:receiverId').put(controllers_1.transferFund);
+exports.default = router;
