@@ -6,7 +6,6 @@ dotenv.config()
 const app = makeApp()
 
 
-
 const port = process.env.PORT || 5000
 app.listen(port, (): void =>{
     console.log('Server is running')

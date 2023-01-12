@@ -13,13 +13,6 @@ const routes_1 = __importDefault(require("./routes"));
 function makeApp() {
     app.use(express_1.default.urlencoded({ extended: false }));
     app.use(express_1.default.json());
-    // app.use(cookieParser());
-    //   app.use(sessions({
-    //     secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
-    //     saveUninitialized:true,
-    //     cookie: { maxAge: 1000 * 60 * 60 * 24 },
-    //     resave: false
-    // }));
     // Logging
     if (process.env.NODE_ENV === "development") {
         app.use((0, morgan_1.default)("dev"));
@@ -28,8 +21,8 @@ function makeApp() {
     app.use(express_1.default.static(path_1.default.join(__dirname, "public")));
     //API use with swagger-ui
     app.use("/api-docs", swagger_ui_express_1.default.serve, swagger_ui_express_1.default.setup(docs_1.default, { explorer: true }));
-    app.get("/api", (req, res) => {
-        res.json({ message: "You are welcome to lendsqr" });
+    app.get("/", (req, res) => {
+        res.json({ message: "You are welcome to lendsqr app. Go to /api-docs to see the available routes" });
     });
     app.use("/api", routes_1.default);
     return app;

@@ -29,6 +29,7 @@ This will display **8.1.1** or similar.
 To setup the project running, navigate to the project directory after cloning it via **Command Prompt** or **Terminal** and run the command below:
 
 ```
+##Schema link:  https://app.dbdesigner.net/designer/schema/592786
 npm install
 ```
 

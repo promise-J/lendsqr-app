@@ -14,16 +14,6 @@ import { auth } from "./auth/auth";
 function makeApp() {
   app.use(express.urlencoded({ extended: false }));
   app.use(express.json());
-
-  // app.use(cookieParser());
-
-  //   app.use(sessions({
-  //     secret: "thisismysecrctekeyfhrgfgrfrty84fwir767",
-  //     saveUninitialized:true,
-  //     cookie: { maxAge: 1000 * 60 * 60 * 24 },
-  //     resave: false
-  // }));
-
   // Logging
   if (process.env.NODE_ENV === "development") {
     app.use(morgan("dev"));
@@ -37,8 +27,8 @@ function makeApp() {
     swaggerUi.setup(docs_options, { explorer: true })
   );
 
-  app.get("/api", (req: Request, res: Response) => {
-    res.json({ message: "You are welcome to lendsqr" });
+  app.get("/", (req: Request, res: Response) => {
+    res.json({ message: "You are welcome to lendsqr app. Go to /api-docs to see the available routes" });
   });
 
   app.use("/api", indexRoute);

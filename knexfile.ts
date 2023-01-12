@@ -52,7 +52,7 @@ const config: { [key: string]: Knex.Config } = {
   production: {
     client: "mysql2",
     connection: {
-        host: "localhost",
+        host: process.env.DB_HOST,
         port: 3306,
         user: process.env.DB_USER,
         password: process.env.DB_PASSWORD,
@@ -63,6 +63,7 @@ const config: { [key: string]: Knex.Config } = {
       max: 10
     },
     migrations: {
+      directory: './data/migrations',
       tableName: "knex_migrations"
     }
   }
