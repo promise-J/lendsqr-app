@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "jest --detectOpenHandles --watchAll --no-cache",
-    "start": "node ./build/index.js",
+    "start": "node ./build/src/index.js",
     "build": "tsc -p .",
     "dev": "nodemon ./src/index.ts"
   },
