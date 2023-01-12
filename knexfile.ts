@@ -63,7 +63,7 @@ const config: { [key: string]: Knex.Config } = {
       max: 10
     },
     migrations: {
-      directory: './data/migrations',
+      directory: './src/db/migrations',
       tableName: "knex_migrations"
     }
   }
